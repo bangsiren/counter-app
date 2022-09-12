@@ -42,7 +42,7 @@ function handleReset() {
 
   return (
      <React.Fragment>
-       <NavBar/>
+       <NavBar totalCounter={counters.filter(c=>c.value>0).length}/>
 
        <main className='container'>
           <Counters
@@ -50,7 +50,7 @@ function handleReset() {
           onReset={handleReset}
           onIncrement={handleIncrement}
           onDelete={handleDelete}
-
+          
           />
        </main>
      </React.Fragment>
