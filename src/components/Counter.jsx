@@ -20,11 +20,20 @@ export default function Counter(props) {
 
   return (
      <React.Fragment>
-         <p>Counter: #{props.id}</p>
-         <span className={getBackgroundColor()}>{formtCount()}</span>
-         <button className='btn btn-secondary btn-sm' onClick={()=> props.onIncrement(props.counter)}>Increment</button>
-         <button onClick={() => props.onDelete(props.counter.id)} className="btn btn-danger btn-sm m-2">delete</button>
-         <br />
+         {/* <p>Counter: #{props.id}</p> */}
+        <div className="row">
+          <div className="col-1">
+          <span className={getBackgroundColor()}>{formtCount()}</span>
+          </div>
+          <div className="col-2">
+          <div className="row">
+         <button className='btn m-1 btn-secondary btn-sm col' onClick={()=> props.onIncrement(props.counter)}>+</button>
+         <button disabled = {props.counter.value === 0? "disabled" : ""} className='btn m-1 btn-secondary btn-sm col' onClick={()=> props.onDecrement(props.counter)}>-</button>
+         <button  className="btn m-1 btn-danger btn-sm col" onClick={() => props.onDelete(props.counter.id)} >x</button>
+          </div>
+          </div>
+        </div>
+         
      </React.Fragment>
   )
 }

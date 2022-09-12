@@ -15,6 +15,13 @@ let [counters, setCounters ] = useState([
     
 ])
 
+// constructor(){
+//   super();
+//   console.log("this is a constructo");
+// }
+// componentDidMount() {
+//   console.log('App-Mounted')
+// }
 function handleIncrement(counter){
     console.log(counter)
     const incrementCounter = [...counters]
@@ -23,6 +30,16 @@ function handleIncrement(counter){
     incrementCounter[index] = { ...counter }
     incrementCounter[index].value++
     setCounters(incrementCounter)
+} 
+
+function handleDecrement(counter){
+  console.log(counter)
+  const incrementCounter = [...counters]
+
+  const index = incrementCounter.indexOf(counter)
+  incrementCounter[index] = { ...counter }
+  incrementCounter[index].value--
+  setCounters(incrementCounter)
 } 
 
 function handleDelete(counterID) {
@@ -49,6 +66,7 @@ function handleReset() {
           counters={counters}
           onReset={handleReset}
           onIncrement={handleIncrement}
+          onDecrement={handleDecrement}
           onDelete={handleDelete}
           
           />
